@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_app/Model/Store.dart';
 
 
 class MyGalery extends StatefulWidget {
@@ -11,6 +12,7 @@ class MyGalery extends StatefulWidget {
   State<MyGalery> createState() => _MyGaleryState();
 }
 class _MyGaleryState extends State<MyGalery> {
+final String texto = Store.login;
 bool loading = true;
 List<String> ids = ['0' '10' '1002'];
   int itens = 10;
@@ -91,7 +93,8 @@ List<String> ids = ['0' '10' '1002'];
          onTap: (int index) {
           switch (index) {
             case 0:
-            Navigator.of(context).pushNamed('/form');
+            Navigator.pushReplacementNamed(context, "/form",
+              arguments: {"nome": texto});
             break;
             case 1:
             Navigator.of(context).pushNamed('/galery');

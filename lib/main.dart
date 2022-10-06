@@ -4,7 +4,9 @@ import 'package:flutter_app/View/register.dart';
 import 'package:flutter_app/View/Login.dart';
 import 'package:flutter_app/Controller/App.dart';
 import 'package:flutter_app/View/Loading.dart';
+import 'package:flutter_app/View/HomeScrenn.dart';
 import 'package:flutter_app/Model/Form.dart';
+import 'package:flutter_app/Model/Store.dart';
 void main() => runApp(
 AppWight()
 );
@@ -47,6 +49,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  final String texto = Store.login;
   int counter = 0;
   @override
   Widget build(BuildContext context) {
@@ -56,6 +59,41 @@ class HomePageState extends State<HomePage> {
             'Home Page',
           ),
           actions: [CustomSwitch()]),
+          bottomNavigationBar: BottomNavigationBar(
+				currentIndex: 0,
+        backgroundColor: Color.fromARGB(68, 180, 50, 152),
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: "Meus Dados",
+              backgroundColor: Color.fromARGB(0, 255, 255, 255),
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_basket),
+              backgroundColor: Colors.white.withOpacity(0.1),
+              label: "Produtos",
+          ),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              backgroundColor: Colors.white.withOpacity(0.1),
+              label: "Home",
+          ),
+        ],
+         onTap: (int index) {
+          switch (index) {
+            case 0:
+            Navigator.pushReplacementNamed(context, "/form",
+              arguments: {"nome": texto});
+            break;
+            case 1:
+            Navigator.of(context).pushNamed('/galery');
+            break;
+            case 2:
+            Navigator.of(context).pushNamed('/home');
+            break;
+          }
+        }
+      ),
       body: Container(
         width: double.infinity,
         height: double.infinity,

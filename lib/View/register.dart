@@ -48,40 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-				currentIndex: 0,
-        backgroundColor: Color.fromARGB(68, 180, 50, 152),
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: "Meus Dados",
-              backgroundColor: Color.fromARGB(0, 255, 255, 255),
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_basket),
-              backgroundColor: Colors.white.withOpacity(0.1),
-              label: "Produtos",
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              backgroundColor: Colors.white.withOpacity(0.1),
-              label: "Home",
-          ),
-        ],
-         onTap: (int index) {
-          switch (index) {
-            case 0:
-            Navigator.of(context).pushNamed('/form');
-            break;
-            case 1:
-            Navigator.of(context).pushNamed('/galery');
-            break;
-            case 2:
-            Navigator.of(context).pushNamed('/home');
-            break;
-          }
-        }
-      ),
+      
       body: Container(
           decoration: BoxDecoration(
             image: DecorationImage(

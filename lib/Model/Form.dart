@@ -20,7 +20,7 @@ class FormPageState extends State<FormPage> {
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text("User"),
         leading: Icon(Icons.login),
         actions: <Widget>[
            Padding(
@@ -78,15 +78,14 @@ class FormPageState extends State<FormPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text("Dados do Usuário"),
+            Text("User data"),
             /*Container(
               height: 20,
             ),*/
             Text(
-              'Nome: ' + nome,
+              'Name: ' + nome,
                 style: TextStyle(
                         fontSize: 30,
-                        fontFamily: 'Futura',
                         color: Colors.white,
                 ),
             ),
