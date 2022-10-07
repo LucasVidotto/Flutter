@@ -14,19 +14,11 @@ class MyGalery extends StatefulWidget {
 class _MyGaleryState extends State<MyGalery> {
 final String texto = Store.login;
 bool loading = true;
-List<String> ids = ['0' '10' '1002'];
+
   int itens = 10;
   
   @override
-  void initState(){
-    loading = true;
-    ids = [];
-    
-    _loadingImageIds();
-    
-    super.initState();
-  }
-  
+
   void _loadingImageIds(){
     
   }

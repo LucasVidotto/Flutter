@@ -64,10 +64,10 @@ class FormPageState extends State<FormPage> {
             Navigator.of(context).pushNamed('/form');
             break;
             case 1:
-            Navigator.of(context).pushNamed('/galery');
+              Navigator.of(context).pushNamed('/galery');
             break;
             case 2:
-            Navigator.of(context).pushNamed('/home');
+              Navigator.of(context).pushNamed('/home');
             break;
           }
         }

@@ -11,15 +11,15 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  var _formKey = GlobalKey<FormState>();
+  var chave = GlobalKey<FormState>();
   var isLoading = false;
   
-  void _submit() {
-    final isValid = _formKey.currentState!.validate();
-    if (!isValid) {
+  void _enviar() {
+    final valido = chave.currentState!.validate();
+    if (!valido) {
       return;
     }
-    _formKey.currentState!.save();
+    chave.currentState!.save();
   }
   
    
@@ -61,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: const EdgeInsets.all(16.0),
         //form
         child: Form(
-          key: _formKey,
+          key: chave,
           child: Column(
             children: <Widget>[
               Text(
@@ -128,7 +128,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                   validator: (value) {
                     if (value!.isEmpty ||
-                        !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        !RegExp(r"^[a-zA-Z]")
                             .hasMatch(value)) {
                       return 'Enter your name';
                     }
@@ -190,7 +190,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontSize: 24.0,
                   ),
                 ),
-                onPressed: () => _submit() 
+                onPressed: () => _enviar() 
               ),
               ),
             ],

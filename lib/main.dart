@@ -4,7 +4,6 @@ import 'package:flutter_app/View/register.dart';
 import 'package:flutter_app/View/Login.dart';
 import 'package:flutter_app/Controller/App.dart';
 import 'package:flutter_app/View/Loading.dart';
-import 'package:flutter_app/View/HomeScrenn.dart';
 import 'package:flutter_app/Model/Form.dart';
 import 'package:flutter_app/Model/Store.dart';
 void main() => runApp(

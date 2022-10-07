@@ -9,11 +9,11 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var _formKey = GlobalKey<FormState>();
+  var chave = GlobalKey<FormState>();
   var isLoading = false;
-  void _submit() {
-    final isValid = _formKey.currentState!.validate();
-    if (!isValid) {
+  void _enviar() {
+    final valido = chave.currentState!.validate();
+    if (!valido) {
       return  ;
     }else{
       if(ControlerTeste.value.text == texto){
@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       }else
         print("error");
     }
-    _formKey.currentState!.save();
+    chave.currentState!.save();
   }
   final String texto = Store.login;
   final ControlerTeste = TextEditingController();
@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: const EdgeInsets.all(16.0),
         //form
         child: Form(
-          key: _formKey,
+          key: chave,
           child: Column(
             children: <Widget>[
               Text(
@@ -166,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 24.0,
                   ),
                 ),
-                onPressed: () => _submit()
+                onPressed: () => _enviar()
               ),
               ),
               /* Container(
