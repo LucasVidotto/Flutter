@@ -6,6 +6,8 @@ import 'package:flutter_app/Controller/App.dart';
 import 'package:flutter_app/View/Loading.dart';
 import 'package:flutter_app/Model/Form.dart';
 import 'package:flutter_app/Model/Store.dart';
+import 'package:flutter_app/View/list.dart';
+import 'package:flutter_app/View/cart.dart';
 void main() => runApp(
 AppWight()
 );
@@ -21,11 +23,12 @@ class AppWight extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(
             primarySwatch: Colors.blue,
+            primaryColor: Colors.orange,
             brightness: AppController.instance.isLight
                 ? Brightness.light
                 : Brightness.dark,
           ),
-          initialRoute: '/login',
+          initialRoute: '/list',
           routes: {
             '/login': (context) => LoadingPage(),
             '/': (context) => LoginPage(),
@@ -33,6 +36,8 @@ class AppWight extends StatelessWidget {
             '/form': (context) => FormPage(),
             '/register' : (context) => RegisterPage(),
             '/galery' : (context) => MyGalery(),
+            '/list' : (context) => List(),
+            '/cart' : (context) => Cart(),
           },
         );
       },
@@ -64,7 +69,7 @@ class HomePageState extends State<HomePage> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: "Meus Dados",
+              label: "Dados",
               backgroundColor: Color.fromARGB(0, 255, 255, 255),
           ),
           BottomNavigationBarItem(

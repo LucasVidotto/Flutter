@@ -16,7 +16,7 @@ class _LoadingPageState extends State<LoadingPage> {
   
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(milliseconds: 5000), () {
+    Future.delayed(Duration(milliseconds: 1000), () {
     /* void initState(){
         super.initState(); */
         Timer();

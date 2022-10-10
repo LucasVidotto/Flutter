@@ -44,13 +44,13 @@ class FormPageState extends State<FormPage> {
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: "Data",
+              label: "Dados",
               backgroundColor: Color.fromARGB(0, 255, 255, 255),
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_basket),
               backgroundColor: Colors.white.withOpacity(0.1),
-              label: "Products",
+              label: "Produtos",
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -78,12 +78,12 @@ class FormPageState extends State<FormPage> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text("User data"),
+            Text("Bem vindo"),
             /*Container(
               height: 20,
             ),*/
             Text(
-              'Name: ' + nome,
+               nome,
                 style: TextStyle(
                         fontSize: 30,
                         color: Colors.white,

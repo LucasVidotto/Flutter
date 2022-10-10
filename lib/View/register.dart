@@ -14,23 +14,31 @@ class _RegisterPageState extends State<RegisterPage> {
   var chave = GlobalKey<FormState>();
   var isLoading = false;
   
-  void _enviar() {
+   void _enviar() {
     final valido = chave.currentState!.validate();
     if (!valido) {
       return;
+    }else{
+      _Salvar();
     }
+      
     chave.currentState!.save();
-  }
-  
+  } 
+  final ControlerTeste = TextEditingController();
+  void _Salvar() {
+    Navigator.pushReplacementNamed(context, "/form",
+        arguments: {"nome": ControlerTeste.value.text});
+  } 
    
   @override
   Widget build(BuildContext context) {
+    
     final ButtonStyle style =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return Scaffold(
       appBar: AppBar(
         title: Text("Register"),
-        leading: Icon(Icons.route),
+        leading: Icon(Icons.app_registration),
         actions: <Widget>[
            Padding(
             padding: EdgeInsets.only(right:25),
@@ -51,11 +59,11 @@ class _RegisterPageState extends State<RegisterPage> {
       
       body: Container(
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: NetworkImage(
-                  "https://images4.alphacoders.com/936/936378.jpg"),
-              fit: BoxFit.cover,
-            ),
+            gradient: RadialGradient(
+          colors: [Color(0xff000000), Color(0xff085795)],
+          center: Alignment.center,
+          radius: 0.8,
+        )
           ),
         child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -72,11 +80,12 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.06,
               ),
-              Material(
+              /* Material(
                 elevation: 18,
                 shadowColor: Colors.white,
-                child:
+                child: */
                 TextFormField(
+                  controller: ControlerTeste,
                   decoration: InputDecoration(
                     labelText: 'Email/Login',
                     border: OutlineInputBorder(
@@ -84,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     10.0,
                   ),
                 ),
-                icon: new Icon(Icons.login, color: Color(0xff224597)),
+                icon: new Icon(Icons.login, color: Color.fromARGB(255, 159, 161, 167)),
                 fillColor: Colors.black,
                 filled: true,
                   ),
@@ -101,15 +110,15 @@ class _RegisterPageState extends State<RegisterPage> {
                     return null;
                   },
                 ),
-              ),
+              /* ), */
               //box styling
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.06,
               ),
-              Material(
+              /* Material(
                 elevation: 18,
                 shadowColor: Colors.white,
-                child:
+                child: */
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: 'Name',
@@ -118,7 +127,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     10.0,
                   ),
                 ),
-                icon: new Icon(Icons.login, color: Color(0xff224597)),
+                icon: new Icon(Icons.login, color: Color.fromARGB(255, 159, 161, 167)),
                 fillColor: Colors.black,
                 filled: true,
                   ),
@@ -135,14 +144,14 @@ class _RegisterPageState extends State<RegisterPage> {
                     return null;
                   },
                 ),
-              ),
+             /*  ), */
                SizedBox(
                 height: MediaQuery.of(context).size.width * 0.06,
               ),
-              Material(
+              /* Material(
                 elevation: 18,
                 shadowColor: Colors.white,
-                child: TextFormField(
+                child: */ TextFormField(
                 decoration: InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(
@@ -158,19 +167,20 @@ class _RegisterPageState extends State<RegisterPage> {
                 onFieldSubmitted: (value) {},
                 obscureText: true, 
                 validator: (value) {
-                  if (value!.isEmpty) {
+                  if (value!.isEmpty || value.length < 5) {
                     return 'Enter a valid password!';
                   }
                   return null;
                 },
               ),
               //text input 
-              ),
+            /*   ), */
               SizedBox(
                 height: MediaQuery.of(context).size.width * 0.06,
               ),
               Container(width: 140,height: 50, 
               decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
               gradient: LinearGradient(
                 colors: [Color.fromARGB(140, 59, 51, 180),Color.fromARGB(139, 228, 81, 208), Color.fromARGB(140, 87, 28, 99)],
                 begin: FractionalOffset.centerLeft,
@@ -183,6 +193,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   primary: Colors.white,
                   shadowColor: Color.fromARGB(255, 255, 255, 255),
                   elevation: 5,
+                  /* shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ), */
                 ),
                 child: Text(
                   "Enter",
@@ -190,7 +203,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     fontSize: 24.0,
                   ),
                 ),
-                onPressed: () => _enviar() 
+                onPressed: () =>  _enviar() 
               ),
               ),
             ],

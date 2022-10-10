@@ -68,13 +68,13 @@ bool loading = true;
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: "Data",
+              label: "Dados",
               backgroundColor: Color.fromARGB(0, 255, 255, 255),
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_basket),
               backgroundColor: Colors.white.withOpacity(0.1),
-              label: "Products",
+              label: "Produtos",
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -101,7 +101,7 @@ bool loading = true;
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(
-                  "https://i0.wp.com/www.toppapeldeparede.com.br/wp-content/uploads/2021/02/imagem-papcel-de-parede.jpg?resize=564%2C1002&ssl=1"),
+                  "https://i0.wp.com/emotioncard.com.br/wp-content/uploads/2017/08/02c1b43868407cd6f7c142885eb95c46-mobile-wallpaper-wallpaper-backgrounds-1.jpg?resize=660%2C1173&ssl=1"),
               fit: BoxFit.cover,
             ),
           ),
@@ -110,14 +110,69 @@ bool loading = true;
             Row(
         children:[
           Padding(
-              padding: EdgeInsets.only(left:50,bottom:15,top:45),
+              padding: EdgeInsets.only(left:50,bottom:15),
               child:Column(children:[
                 Container(
                 width: 130,
                 height: 130,
                 child: ClipRRect(borderRadius: BorderRadius.circular(20),
-                     child: Image.network('https://cdn.tutsplus.com/vector/uploads/legacy/qt/2012_QT/qt_69_space_background/preview.jpg'),
+                     child: Image.network('https://i.pinimg.com/originals/51/2b/4b/512b4b870390fac58da5206e88d228d6.png'),
               ),),
+                
+                Text('Itens : ${itens}', style:TextStyle(fontSize: 20)),
+                SizedBox(
+              height: 50,
+              width: 150,
+              child:Container(
+                padding: EdgeInsets.only(bottom:10),
+                child:TextButton(
+                  onPressed: () => {
+                    if(itens <= 0){
+                      showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text('Sem Produtos'),
+                      content: const Text('Falta de Produtos'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        /* TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ), */
+                      ],
+                    ),
+                  ),
+                      setState((){
+                        itens = 1;
+                        itens --;
+                      })
+                    }
+                    else{
+                      setState((){
+
+                        itens --;
+                      })
+                    }
+                  },
+                  child: const Icon(Icons.remove),
+                ),
+                ),
+              )]),
+            ),
+          Padding(
+              padding: EdgeInsets.only(left:50, bottom:30,top:10),
+              child:Column(children:[
+                Container(
+                width: 130,
+                height: 130,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    'http://pngimg.com/uploads/running_shoes/running_shoes_PNG5827.png'),
+                ),),
                 
                 Text('Itens : ${itens}', style:TextStyle(fontSize: 20)),
                 SizedBox(
@@ -161,20 +216,8 @@ bool loading = true;
                 ),
                 ),
               )]),
-            ),
-          Padding(
-              padding: EdgeInsets.only(left:50, bottom:30),
-              child:Container(
-                width: 130,
-                height: 130,
-                
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    'https://artmin96.github.io/argon-social/assets/images/users/album/album-2.jpg'),
-                )
 
-              ),)
+              ),
           ]
       ),
       Row(
@@ -188,7 +231,7 @@ bool loading = true;
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Image.network(
-                    'https://images-na.ssl-images-amazon.com/images/I/51GqHrxFv2S._AC._SR360,460.jpg'),
+                    'https://pngimg.com/uploads/running_shoes/running_shoes_PNG5817.png'),
                 )
 
               ),
@@ -202,7 +245,7 @@ bool loading = true;
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.network(
-                        "https://i.zst.com.br/thumbs/45/18/1e/1137916853.jpg"
+                        "https://www.freeiconspng.com/thumbs/shoes-png/green-running-shoes-png-24.png"
                       )
 
                   ),
