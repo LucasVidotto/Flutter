@@ -19,12 +19,11 @@ bool loading = true;
   
   @override
 
-  void _loadingImageIds(){
-    
-  }
-  void _Salvar() {
-    Navigator.pushReplacementNamed(context, "/form",
-        arguments: {"nome": 01});
+
+  String codigo = 'not';
+  void _Enviar() {
+    Navigator.pushReplacementNamed(context, "/info",
+        arguments: {"nome": codigo});
   }
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ bool loading = true;
     int intens = 10;
     return(Scaffold(
       appBar: AppBar(
-        title: Text("Galeri"),
+        title: Text("List"),
         leading: Icon(Icons.image),
         actions: <Widget>[
            Padding(
@@ -69,7 +68,7 @@ bool loading = true;
       bottomNavigationBar:Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color.fromARGB(255, 230, 21, 14), Color.fromARGB(255, 231, 143, 12)],
+          colors: [Color.fromARGB(255, 117, 115, 115), Color.fromARGB(255, 63, 62, 61)],
           begin: Alignment.topLeft,
           end: Alignment.topRight,
           stops: [0.0, 0.8],
@@ -111,29 +110,36 @@ bool loading = true;
           }
         }
       ),),
-      body: Container(
+      body:Container(
           decoration: BoxDecoration(
             gradient: RadialGradient(
-          colors: [Color(0xffffffff), Color(0xff8b8b8b)],
+          colors: [Color.fromARGB(255, 252, 249, 249), Color.fromARGB(255, 202, 199, 199)],
           center: Alignment.bottomLeft,
           radius: 0.8,
         )
         
           ),
         child:
-      Column(children:[
+      ListView(children:[
             Row(
         children:[
           Padding(
-              padding: EdgeInsets.only(left:50, bottom:30,top:10),
-              child:Column(children:[
-                 Text('Shoes Nike', style: TextStyle(color: Colors.black)),
+              padding: EdgeInsets.only(left:35, bottom:30,top:10),
+              child:Container(width:135,height:161, 
+              decoration:BoxDecoration(color: Colors.black.withOpacity(0.3),
+              border: Border.all(color: Colors.black.withOpacity(0.3)),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              child: 
+              Column(children:[
+                 Text('NIKE SPORT', style: TextStyle(color: Colors.black)),
                 Container(
                 width: 100,
                 height: 100,
-                child: ClipRRect(borderRadius: BorderRadius.circular(20),
+                child: RotationTransition(
+                turns:  AlwaysStoppedAnimation(20 / 360),child: ClipRRect(borderRadius: BorderRadius.circular(20),
                      child: Image.network('https://i.pinimg.com/originals/51/2b/4b/512b4b870390fac58da5206e88d228d6.png'),
-              ),),
+              ),),),
 
                Container(width: 100,height: 40, 
                     decoration: BoxDecoration(
@@ -141,7 +147,12 @@ bool loading = true;
                     color:Colors.black
                     ),
                     child:TextButton(
-                    onPressed: () => {},
+                    onPressed: () => {
+                      setState(() {
+                        codigo = 'nike';
+                      }),
+                      _Enviar()
+                    },
                     style: TextButton.styleFrom(
                       primary: Colors.white,
                       shadowColor: Color.fromARGB(255, 255, 255, 255),
@@ -156,12 +167,19 @@ bool loading = true;
                     ]),
                     ),
                 )]),
-
-              ),
+              )
+            ),
           Padding(
-              padding: EdgeInsets.only(left:60, bottom:30,top:10),
-              child:Column(children:[
-                Text('Shoes ???', style: TextStyle(color: Colors.black)),
+              padding: EdgeInsets.only(left:40, bottom:30,top:10),
+              child:
+              Container(width:135,height:161, 
+              decoration:BoxDecoration(color: Colors.black.withOpacity(0.3),
+              border: Border.all(color: Colors.black.withOpacity(0.3)),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              child:
+              Column(children:[
+                Text('W3 SPORT', style: TextStyle(color: Colors.black)),
                 Container(
                 width: 100,
                 height: 100,
@@ -194,13 +212,20 @@ bool loading = true;
                 )]),
 
               ),
-          ]
+          )]
       ),
-      Row(
+      Row( //Kit Dois
           children:[
             Padding(
-              padding: EdgeInsets.only(left:50, bottom:30,top:10),
-              child:Column(children:[
+              padding: EdgeInsets.only(left:35, bottom:30,top:10),
+              child:
+              Container(width:135,height:161, 
+              decoration:BoxDecoration(color: Colors.black.withOpacity(0.3),
+              border: Border.all(color: Colors.black.withOpacity(0.3)),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              child:
+              Column(children:[
                 Text('Shoes ???', style: TextStyle(color: Colors.black)),
                 Container(
                 width: 100,
@@ -231,21 +256,29 @@ bool loading = true;
                     ]),
                     ),
                 )]),
-
+                )
               ),
             Padding(
-              padding: EdgeInsets.only(left:60, bottom:30,top:10),
-              child:Column(children:[
-                 Text('Shoes Nike', style: TextStyle(color: Colors.black)),
+              padding: EdgeInsets.only(left:40, bottom:30,top:10),
+              child:
+              Container(width:135,height:161, 
+              decoration:BoxDecoration(color: Colors.black.withOpacity(0.3),
+              border: Border.all(color: Colors.black.withOpacity(0.3)),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              child:
+              Column(children:[
+                 Text('MIZUNO', style: TextStyle(color: Colors.black)),
                 Container(
                 width: 100,
                 height: 100,
-                child: ClipRRect(
+                child: RotationTransition(
+                turns:  AlwaysStoppedAnimation(-20 / 360),child:ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.network(
-                        "https://www.freeiconspng.com/thumbs/shoes-png/green-running-shoes-png-24.png"
+                        "https://freepngdownload.com/image/thumb/running-shoes-png-free-download-42.png"
                       )
-                  ),),
+                  ),),),
 
                Container(width: 100,height: 40, 
                     decoration: BoxDecoration(
@@ -254,7 +287,10 @@ bool loading = true;
                     ),
                     child:TextButton(
                     onPressed: () => {
-                      Navigator.pushNamed(context, '/cart')
+                      setState(() {
+                        codigo = 'mizuno';
+                      }),
+                      _Enviar()
                     },
                     style: TextButton.styleFrom(
                       primary: Colors.white,
@@ -271,7 +307,98 @@ bool loading = true;
                     ),
                 )]),
               ),
-          ]
+          )]
+          ),
+      Row( // Kit Três
+          children:[
+            Padding(
+              padding: EdgeInsets.only(left:35, bottom:30,top:10),
+              child:
+              Container(width:135,height:161, 
+              decoration:BoxDecoration(color: Colors.black.withOpacity(0.3),
+              border: Border.all(color: Colors.black.withOpacity(0.3)),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              child:
+              Column(children:[
+                Text('NIKE RUN', style: TextStyle(color: Colors.black)),
+                Container(
+                width: 100,
+                height: 100,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    'https://www.pngall.com/wp-content/uploads/13/Nike-Shoes-Transparent.png'),
+                ),),
+               Container(width: 100,height: 40, 
+                    decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color:Colors.black
+                    ),
+                    child:TextButton(
+                    onPressed: () => {},
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      shadowColor: Color.fromARGB(255, 255, 255, 255),
+                      elevation: 5,
+                      /* shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ), */
+                    ),
+                    child: Row(children: [
+                      const Icon(Icons.info, size: 13.0,),
+                      Text('More Info', style: TextStyle(fontSize: 13),)
+                    ]),
+                    ),
+                )]),
+                )
+              ),
+            Padding(
+              padding: EdgeInsets.only(left:40, bottom:30,top:10),
+              child:
+              Container(width:135,height:161, 
+              decoration:BoxDecoration(color: Colors.black.withOpacity(0.3),
+              border: Border.all(color: Colors.black.withOpacity(0.3)),
+              borderRadius: BorderRadius.all(Radius.circular(10))
+              ),
+              child:
+              Column(children:[
+                 Text('ADIDAS SPEED', style: TextStyle(color: Colors.black)),
+                Container(
+                width: 100,
+                height: 100,
+                child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        "https://www.pngmart.com/files/21/Adidas-Shoes-PNG-Isolated-Pic.png"
+                      )
+                  ),),
+
+               Container(width: 100,height: 40, 
+                    decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color:Colors.black
+                    ),
+                    child:TextButton(
+                    onPressed: () => {
+                      Navigator.pushNamed(context, '/info')
+                    },
+                    style: TextButton.styleFrom(
+                      primary: Colors.white,
+                      shadowColor: Color.fromARGB(255, 255, 255, 255),
+                      elevation: 5,
+                      /* shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ), */
+                    ),
+                    child: Row(children: [
+                      const Icon(Icons.info, size: 13.0,),
+                      Text('More Info', style: TextStyle(fontSize: 13),)
+                    ]),
+                    ),
+                )]),
+              ),
+          )]
           )
     ])
 

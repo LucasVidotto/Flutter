@@ -4,8 +4,10 @@ class Store{
 }
 
 class Products{
-   static int  id = 01;
-   static String description = 'Produto X';
-   static String url = 'https://www.freeiconspng.com/thumbs/shoes-png/green-running-shoes-png-24.png';
-   static double price = 299.00;
+   static List <String> mizuno = ['01', 'MIZUNO', '399.99',
+      'https://freepngdownload.com/image/thumb/running-shoes-png-free-download-42.png'
+   ];
+   static List <String> nike = ['02', 'NIKE SPORT', '299.99', 
+      'https://i.pinimg.com/originals/51/2b/4b/512b4b870390fac58da5206e88d228d6.png'];
+   static List <String> w = ['03', 'W3 SPORT', '249.00'];
 }

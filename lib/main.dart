@@ -7,7 +7,9 @@ import 'package:flutter_app/View/Loading.dart';
 import 'package:flutter_app/Model/Form.dart';
 import 'package:flutter_app/Model/Store.dart';
 import 'package:flutter_app/View/list.dart';
+import 'package:flutter_app/View/info.dart';
 import 'package:flutter_app/View/cart.dart';
+/* import 'package:flutter_app/View/feed.dart'; */
 void main() => runApp(
 AppWight()
 );
@@ -37,7 +39,9 @@ class AppWight extends StatelessWidget {
             '/register' : (context) => RegisterPage(),
             '/galery' : (context) => MyGalery(),
             '/list' : (context) => List(),
+            '/info' : (context) => Info(),
             '/cart' : (context) => Cart(),
+/*             '/feed' : (context) => Feed(), */
           },
         );
       },

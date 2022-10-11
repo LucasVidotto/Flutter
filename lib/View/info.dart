@@ -3,35 +3,37 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_app/Model/Store.dart';
+import 'package:flutter_app/View/feed.dart';
 
-class Cart extends StatefulWidget {
-  const Cart({Key? key}) : super(key: key);
+class Info extends StatefulWidget {
+  const Info({Key? key}) : super(key: key);
 
   @override
-  State<Cart> createState() => _CartState();
+  State<Info> createState() => _InfoState();
 }
-class _CartState extends State<Cart> {
+class _InfoState extends State<Info> {
 final String texto = Store.login;
+final List<String> nike = Products.nike;
+final List<String> mizu = Products.mizuno;
+ List<String> teste = [];
 bool loading = true;
-
   int itens = 10;
-  
-  @override
-
-  void _loadingImageIds(){
-    
-  }
-
-  int quanti = 0;
   @override
   Widget build(BuildContext context) {
+    Map data = {};
+    data = ModalRoute.of(context)!.settings.arguments as Map; 
+    String nome = data["nome"];
+    if(nome == 'nike')
+      teste = nike;
+    else if(nome == 'mizuno')
+      teste = mizu;
     final ButtonStyle style =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     String _buttonText = "Click";
     int intens = 10;
     return(Scaffold(
       appBar: AppBar(
-        title: Text("Cart"),
+        title: Text("Galeri"),
         leading: Icon(Icons.image),
         actions: <Widget>[
            Padding(
@@ -96,19 +98,19 @@ bool loading = true;
           ),
         child:
         Column(children: [
-          Text('description'),
+          Text(teste[1]),
           Container(
                 width: 170,
                 height: 170,
                 child: ClipRRect(borderRadius: BorderRadius.circular(20),
-                     child: Image.network(''),
+                     child: Image.network(teste[3]),
               ),),
           SizedBox(
             height: 20,
           ),
           Padding(padding: const EdgeInsets.only(left:40.0),child:
           Row(children: [
-            Text('Total : {price * quanti}',
+            Text('Preço : ${teste[2]}',
             style:TextStyle(color: Colors.black, fontSize: 20,
             shadows: [
             Shadow(
@@ -120,37 +122,61 @@ bool loading = true;
             ),
             ),
           ],),),
-          Padding(padding: const EdgeInsets.only(left:20),child:
-           Row(children: [
-            Text('QUANTITY : ${quanti}', style: TextStyle(color: Colors.black, fontSize: 17),),
-            Padding(padding: const EdgeInsets.only(left:30,right: 20),child:
-            Container(width: 30,height: 30, 
-                    decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color:Colors.black),
-                child: TextButton(child: Center(child:
-                const Icon(Icons.add),
-                ), onPressed: () => {
-              setState(() {
-                quanti ++;
-              })
-            },),)
-           ),
-           Container(width: 30,height: 30, 
-                    decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color:Colors.black),
-            child: TextButton(child: const Icon(Icons.remove), onPressed: () => {
-              setState(() {
-                if(quanti == 0)
-                  quanti = 1;
-                quanti --;
-                
-              })
-            },)
-           ),
-           ]),),
-          Padding(padding: const EdgeInsets.only(top:30),child: 
+          Padding(padding: const EdgeInsets.only(left:40.0),child:
+          Row(children: [
+            Text('Tamanhos : ', style:TextStyle(color: Colors.black, fontSize: 20)),
+            Padding(padding: const EdgeInsets.only(left:20.0),child:
+              Container(width: 35,height: 35,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(255, 65, 62, 62),
+                ),
+                child:TextButton(child: Text('39',
+                  style:TextStyle(color:Colors.white)),
+                  onPressed: ()=>{})
+              ),),
+             Padding(padding: const EdgeInsets.only(left:10.0),child:
+              Container(width: 35,height: 35,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(255, 65, 62, 62),
+                ),
+                child:TextButton(child: Text('40',
+                  style:TextStyle(color:Colors.white)),
+                  onPressed: ()=>{})
+              ),),
+              Padding(padding: const EdgeInsets.only(left:10.0),child:
+              Container(width: 35,height: 35,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(255, 65, 62, 62),
+                ),
+                child:TextButton(child: Text('41',
+                  style:TextStyle(color:Colors.white)),
+                  onPressed: ()=>{})
+              ),),
+              Padding(padding: const EdgeInsets.only(left:10.0),child:
+              Container(width: 35,height: 35,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(255, 65, 62, 62),
+                ),
+                child:TextButton(child: Text('42',
+                  style:TextStyle(color:Colors.white)),
+                  onPressed: ()=>{})
+              ),),
+              Padding(padding: const EdgeInsets.only(left:10.0),child:
+              Container(width: 35,height: 35,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Color.fromARGB(255, 65, 62, 62),
+                ),
+                child:TextButton(child: Text('43',
+                  style:TextStyle(color:Colors.white)),
+                  onPressed: ()=>{})
+              ),),
+          ],)),
+          Padding(padding: const EdgeInsets.only(top:80),child: 
               Align(
                 alignment: AlignmentDirectional.center,
                 child:
@@ -160,10 +186,12 @@ bool loading = true;
                     borderRadius: BorderRadius.circular(30),
                     color: Color.fromARGB(255, 56, 54, 54),
                     ),
-                    child:TextButton(child: Text('Purchase',
+                    child:TextButton(child: Text('Add cart',
                       style:TextStyle(color:Colors.white)),
-                      onPressed: ()=>{})
-                  ),))
+                      onPressed: ()=>{
+                        Navigator.restorablePushNamed(context, '/cart' )
+                      })
+                  ),)),
             ],)
     )));
   }
