@@ -13,8 +13,7 @@ class Cart extends StatefulWidget {
 class _CartState extends State<Cart> {
 final String texto = Store.login;
 bool loading = true;
-
-  int itens = 10;
+int itens = 10;
   
   @override
 

@@ -15,9 +15,11 @@ class _InfoState extends State<Info> {
 final String texto = Store.login;
 final List<String> nike = Products.nike;
 final List<String> mizu = Products.mizuno;
- List<String> teste = [];
+bool medidas = false;
+bool status = false;
+List<String> teste = [];
 bool loading = true;
-  int itens = 10;
+int itens = 10;
   @override
   Widget build(BuildContext context) {
     Map data = {};
@@ -29,8 +31,9 @@ bool loading = true;
       teste = mizu;
     final ButtonStyle style =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
-    String _buttonText = "Click";
-    int intens = 10;
+/*     String _buttonText = "Click";
+    int intens = 10; */
+    
     return(Scaffold(
       appBar: AppBar(
         title: Text("Galeri"),
@@ -121,6 +124,20 @@ bool loading = true;
             ],
             ),
             ),
+            Padding(padding: const EdgeInsets.only(left:70.0),child:
+            Container(width: 35,height: 35,
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                 color: Color.fromARGB(255, 65, 62, 62),
+                ),
+                child:
+                
+                TextButton(child: Text(medidas == false? 'US' : 'BR'
+                ,style: TextStyle(fontSize: 10, color: Colors.white),), onPressed: ()=>{
+              setState((){
+                medidas = !medidas;
+              })
+            })),)
           ],),),
           Padding(padding: const EdgeInsets.only(left:40.0),child:
           Row(children: [
@@ -129,51 +146,71 @@ bool loading = true;
               Container(width: 35,height: 35,
                 decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 65, 62, 62),
+                 color: status == true ? Colors.green: Color.fromARGB(255, 65, 62, 62),
                 ),
-                child:TextButton(child: Text('39',
+                child:TextButton(child: Text(medidas == false ? '39' : '7.5',
                   style:TextStyle(color:Colors.white)),
-                  onPressed: ()=>{})
+                  onPressed: ()=>{
+                    setState((){
+                      status = !status;
+                    })
+                  })
               ),),
              Padding(padding: const EdgeInsets.only(left:10.0),child:
               Container(width: 35,height: 35,
                 decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 65, 62, 62),
+                 color: status == true ? Colors.green: Color.fromARGB(255, 65, 62, 62),
                 ),
-                child:TextButton(child: Text('40',
+                child:TextButton(child: Text(medidas == false ? '40' : '8.5',
                   style:TextStyle(color:Colors.white)),
-                  onPressed: ()=>{})
+                  onPressed: ()=>{
+                    setState((){
+                      status = !status;
+                    })
+                  })
               ),),
               Padding(padding: const EdgeInsets.only(left:10.0),child:
               Container(width: 35,height: 35,
                 decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 65, 62, 62),
+                 color: status == true ? Colors.green: Color.fromARGB(255, 65, 62, 62),
                 ),
-                child:TextButton(child: Text('41',
+                child:TextButton(child: Text(medidas == false ? '41' : '9.5',
                   style:TextStyle(color:Colors.white)),
-                  onPressed: ()=>{})
+                  onPressed: ()=>{
+                    setState((){
+                      status = !status;
+                    })
+                  })
               ),),
               Padding(padding: const EdgeInsets.only(left:10.0),child:
               Container(width: 35,height: 35,
                 decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 65, 62, 62),
+                color: status == true ? Colors.green: Color.fromARGB(255, 65, 62, 62),
                 ),
-                child:TextButton(child: Text('42',
+                child:TextButton(child: Text(medidas == false ? '42' : '10',
                   style:TextStyle(color:Colors.white)),
-                  onPressed: ()=>{})
+                  onPressed: ()=>{
+                    setState((){
+                      status = !status;
+                    })
+                  })
               ),),
               Padding(padding: const EdgeInsets.only(left:10.0),child:
               Container(width: 35,height: 35,
                 decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: Color.fromARGB(255, 65, 62, 62),
+                 color: status == true ? Colors.green: Color.fromARGB(255, 65, 62, 62),
                 ),
-                child:TextButton(child: Text('43',
+                child:TextButton(child: Text(medidas == false ? '43' : '11',
                   style:TextStyle(color:Colors.white)),
-                  onPressed: ()=>{})
+                  onPressed: ()=>{
+                    setState((){
+                      status = !status;
+                    })
+                  })
               ),),
           ],)),
           Padding(padding: const EdgeInsets.only(top:80),child: 

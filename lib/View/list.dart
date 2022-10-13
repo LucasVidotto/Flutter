@@ -162,8 +162,9 @@ bool loading = true;
                       ), */
                     ),
                     child: Row(children: [
-                      const Icon(Icons.info, size: 13.0,),
-                      Text('More Info', style: TextStyle(fontSize: 13),)
+                      const Icon(Icons.info, size: 15.0,),
+                      Padding(padding: EdgeInsets.only(left: 4), child:
+                      Text('More Info', style: TextStyle(fontSize: 13,)),)
                     ]),
                     ),
                 )]),
